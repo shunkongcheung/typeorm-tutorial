@@ -1,3 +1,8 @@
+/*
+ * Lesson:
+ * learn about how to update data
+ */
+
 interface User {
   id: number;
   username: string;

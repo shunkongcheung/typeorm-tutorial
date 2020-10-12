@@ -1,5 +1,10 @@
 import { ProductEntity } from "../entities";
 
+/*
+ * Lesson:
+ * learn about how to retrieve data with queryManager
+ */
+
 type OrderBy = "id" | "name";
 
 interface ListProductsProps {

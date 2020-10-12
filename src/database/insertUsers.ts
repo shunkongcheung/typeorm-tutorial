@@ -1,5 +1,10 @@
 import { UserEntity } from "../entities";
 
+/*
+ * Lesson:
+ * learn about how to save entities
+ */
+
 interface User {
   username: string;
   emailVerified: boolean;

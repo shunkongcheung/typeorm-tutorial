@@ -1,5 +1,10 @@
 import { UserEntity } from "../entities";
 
+/*
+ * Lesson:
+ * learn about how to retrieve data with Entity that inherit from BaseEntity
+ */
+
 type OrderBy = "id" | "username" | "emailVerified" | "emailVerifiedAt";
 
 interface ListUsersProps {

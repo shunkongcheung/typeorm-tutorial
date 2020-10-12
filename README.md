@@ -20,4 +20,8 @@ Go through [entities](src/entities) to learn about TypeORM Entity.
 
 Implement function with [database](src/database) to learn about TypeORM `queryManager`.
 
-Go through `migrations` to learn how to create migrations with `queryRunner`.
+After implementing all the functions within `database`, you should be able to execute the CLI with `npm run start`.
+
+Go through [migrations](src/migrations) to learn how to create migrations with `queryRunner`.
+
+Go through [ormconfig.json](ormconfig.json) to learn about connections.
