@@ -10,6 +10,8 @@
 
 ## Usage
 
+Pull from `starter` branch if you would like to follow the tutorial.
+
 To compile `typescript` into `javascript`, execute `npm run build`. Compiled code can be found in `./dist`.
 
 To execute compiled code, run `npm run start`. Running `index.js` will start an interactive command line interface (CLI).
