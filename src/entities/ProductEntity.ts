@@ -6,7 +6,8 @@ import {
   ManyToMany,
 } from "typeorm";
 
-import { CategoryEntity, UserEntity } from "./";
+import CategoryEntity from "./CategoryEntity";
+import UserEntity from "./UserEntity";
 
 /*
  * contains example of:

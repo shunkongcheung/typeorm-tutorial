@@ -7,7 +7,7 @@ import {
   OneToMany,
 } from "typeorm";
 
-import { ProductEntity } from "./";
+import ProductEntity from "./ProductEntity";
 
 /*
  * Contains example of various Column type:

@@ -6,7 +6,7 @@ import {
   JoinTable,
 } from "typeorm";
 
-import { ProductEntity } from "./";
+import ProductEntity from "./ProductEntity";
 
 /*
  * An exmaple of using ManyToMany relationship,
