@@ -21,11 +21,11 @@ Go through [entities](src/entities) to learn about TypeORM Entity.
 
 ## Lesson 2: Connection
 
+Go through [.env.example](.env.example) to learn about connections with `.env`.
+
 Go through [ormconfig.json](ormconfig.json) to learn about connections with `ormconfig.json`.
 
 Go through [getDbConnection](src/getDbConnection.ts) to learn about connections with inline configuration.
-
-Go through [.env.example](.env.example) to learn about connections with `.env`.
 
 
 ## Lesson 3: QueryBuilder
@@ -46,5 +46,3 @@ Go through [package.json](package.json) to learn about TypeORM's migration comma
 `npm run db:revert`: execute latest one migration (execute down)
 
 Go through [migrations](src/migrations) to learn how to create migrations with `queryRunner`.
-
-
