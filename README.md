@@ -27,7 +27,12 @@ After implementing all the functions within `database`, you should be able to ex
 
 ## Lesson 2: QueryRunner
 
-Go through [package.json](package.json) to learn about TypeORM's migration commands'.
+Go through [package.json](package.json) to learn about TypeORM's migration commands.
+
+`npm run db:create <file-name>`: create empty migrations file
+`npm run db:generate <file-name>`: create migrations with SQL clause
+`npm run db:run`: execute all new migrations (execute ups)
+`npm run db:revert`: execute latest one migration (execute down)
 
 Go through [migrations](src/migrations) to learn how to create migrations with `queryRunner`.
 
