@@ -12,23 +12,23 @@ const getDbConnection = async () => {
   // files, or from special environment variables
   //
   // TODO: to connect using configuation file, uncomment the following:
-  const connection: Connection = await createConnection();
+  // const connection: Connection = await createConnection();
 
   // !! DO NOT PUT CONNECTION Information here. It should not be commited to your repository.
   // TODO: to manually connect to database. uncomment the following:
-  // const connectionManager = getConnectionManager();
-  // const connection: Connection = connectionManager.create({
-  //   type: process.env.TYPEORM_CONNECTION as any,
-  //   host: process.env.TYPEORM_HOST,
-  //   port: Number(process.env.TYPEORM_PORT),
-  //   username: process.env.TYPEORM_USERNAME,
-  //   password: process.env.TYPEORM_PASSWORD,
-  //   database: process.env.TYPEORM_DATABASE,
-  //   entities: Object.values(Entities),
-  //   logging: true,
-  // });
-  // await connection.connect();
-  // // await connection.synchronize(); // TODO: uncomment this line to synchronize
+  const connectionManager = getConnectionManager();
+  const connection: Connection = connectionManager.create({
+    type: process.env.DB_CONNECTION as any,
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    entities: Object.values(Entities),
+    logging: true,
+  });
+  await connection.connect();
+  // await connection.synchronize(); // TODO: uncomment this line to synchronize
 
   return connection;
 };
