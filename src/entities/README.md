@@ -16,7 +16,7 @@ There is a one-to-many relationship between `UserEntity` and `ProductEntity` wit
 
 ## Understanding Many to Many Relationship
 
-Between `ProductEntity` and `CategoryEntity`, there is a many-to-many relationship. Under the hood, typeorm create an external table to handle the relationship between the two (`product_entity_category_entity`). Go into `CategoryEntity` o learn more on how to use `@JoinTable` and `@ManyToMany`.
+Between `ProductEntity` and `CategoryEntity`, there is a many-to-many relationship. Under the hood, typeorm create an external table to handle the relationship between the two (`category_entity_products_product_entity`). Go into `CategoryEntity` o learn more on how to use `@JoinTable` and `@ManyToMany`.
 
 
 
