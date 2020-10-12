@@ -1,7 +1,11 @@
 import prompts from "prompts";
 import { updateUser as updateUserFromDb, listUsers } from "./database";
 
+import getDbConnection from "./getDbConnection";
+
 const updateUser = async () => {
+  const connection = await getDbConnection();
+
   const users = await listUsers();
 
   if (!users.length) {
@@ -35,6 +39,8 @@ const updateUser = async () => {
   ]);
 
   await updateUserFromDb({ id, username });
+
+  await connection.close();
   console.log(`A User of ${id} is updated.`);
 };
 

@@ -2,11 +2,15 @@ import prompts from "prompts";
 
 import { listUsers as listUsersFromDB } from "./database";
 
+import getDbConnection from "./getDbConnection";
+
 const validateNonEmpty = (val: any) => (!!val ? true : "Value required");
 
 const validatePositive = (val: number) => val > 0;
 
 const listUsers = async () => {
+  const connection = await getDbConnection();
+
   const opts = await prompts([
     {
       type: "select",
@@ -46,6 +50,8 @@ const listUsers = async () => {
 
   const data = await listUsersFromDB(opts);
   const dataStr = JSON.stringify(data, null, 4);
+
+  await connection.close();
   console.log(`You retrieved the following users:\n${dataStr}`);
 };
 

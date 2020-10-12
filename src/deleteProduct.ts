@@ -2,7 +2,11 @@ import prompts from "prompts";
 
 import { deleteProductById, listProducts } from "./database";
 
+import getDbConnection from "./getDbConnection";
+
 const deleteProduct = async () => {
+  const connection = await getDbConnection();
+
   const products = await listProducts();
 
   if (!products.length) {
@@ -24,6 +28,8 @@ const deleteProduct = async () => {
     },
   });
   await deleteProductById(id);
+
+  await connection.close();
   console.log(`A Product of ${id} deleted.`);
 };
 

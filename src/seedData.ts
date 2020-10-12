@@ -1,6 +1,8 @@
 import { date, random } from "faker";
 import { insertCategories, insertUsers, insertProducts } from "./database";
 
+import getDbConnection from "./getDbConnection";
+
 interface User {
   username: string;
   emailVerified: boolean;
@@ -22,6 +24,7 @@ const SEED_PRODUCTS = Array.from({ length: 100 }).map(() => ({
 }));
 
 const seeData = async () => {
+  const connection = await getDbConnection();
   const users = await insertUsers(SEED_USERS);
   const products = await insertProducts(
     SEED_PRODUCTS.map((itm, idx) => ({
@@ -35,6 +38,7 @@ const seeData = async () => {
     { name: "Phone", products: products.slice(50, 100) },
   ]);
 
+  await connection.close();
   console.log("Data is injected into database.");
 };
 
