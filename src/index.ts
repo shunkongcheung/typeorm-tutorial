@@ -10,7 +10,7 @@ import updateUser from "./updateUser";
 type Action = () => Promise<void>;
 
 const start = async () => {
-  const { action }: { action: Action } = await prompts({
+  const { action }: { action: Action | "exit" } = await prompts({
     type: "select",
     name: "action",
     message: "Select an action",
@@ -29,7 +29,7 @@ const start = async () => {
     },
   });
 
-  await action();
+  if (action !== "exit") await action();
 
   console.log("Good bye, hope you enjoyed.");
 };
