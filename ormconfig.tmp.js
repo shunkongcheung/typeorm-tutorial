@@ -16,8 +16,8 @@ module.exports = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  syncchronize: true,
-  logging: process.env.NODE_ENV === "development",
+  synchronize: true,
+  logging: true,
   entities: ["dist/entities/**/*.js"],
   migrations: ["dist/migrations/**/*.js"],
   cli: {
