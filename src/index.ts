@@ -3,6 +3,7 @@ import prompts from "prompts";
 import deleteProduct from "./deleteProduct";
 import listProducts from "./listProducts";
 import listUsers from "./listUsers";
+import pingDb from "./pingDb";
 import seedData from "./seedData";
 import updateUser from "./updateUser";
 
@@ -14,6 +15,7 @@ const start = async () => {
     name: "action",
     message: "Select an action",
     choices: [
+      { title: "Connect to database", value: pingDb },
       { title: "Insert seed data", value: seedData },
       { title: "Delete Product By ID", value: deleteProduct },
       { title: "List products", value: listProducts },
