@@ -1,3 +1,4 @@
+import { getRepository } from "typeorm";
 import { ProductEntity, UserEntity } from "../entities";
 
 /*
@@ -13,7 +14,18 @@ interface Product {
 const insertProducts = async (
   products: Array<Product>
 ): Promise<Array<ProductEntity>> => {
-  return [];
+  const repo = getRepository(ProductEntity);
+
+  const productEntities = products.map((product) => {
+    const productEntity = new ProductEntity();
+
+    productEntity.name = product.name;
+    productEntity.createdBy = product.createdBy;
+
+    return productEntity;
+  });
+
+  return repo.save(productEntities);
 };
 
 export default insertProducts;

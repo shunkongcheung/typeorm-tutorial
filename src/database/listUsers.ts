@@ -17,7 +17,15 @@ interface ListUsersProps {
 const listUsers = async (
   props?: ListUsersProps
 ): Promise<Array<UserEntity>> => {
-  return [];
+  if (!props) return UserEntity.find();
+
+  const { orderBy, asc, page, pageSize } = props;
+
+  return UserEntity.find({
+    order: { [orderBy]: asc ? "ASC" : "DESC" },
+    take: pageSize,
+    skip: (page - 1) * pageSize,
+  });
 };
 
 export default listUsers;

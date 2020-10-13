@@ -1,3 +1,4 @@
+import { createQueryBuilder } from "typeorm";
 import { ProductEntity } from "../entities";
 
 /*
@@ -17,7 +18,18 @@ interface ListProductsProps {
 const listProducts = async (
   props?: ListProductsProps
 ): Promise<Array<ProductEntity>> => {
-  return [];
+  let builder = createQueryBuilder(ProductEntity);
+
+  if (!props) return builder.getMany();
+
+  const { orderBy, asc, page, pageSize } = props;
+
+  builder = builder.orderBy({ [orderBy]: asc ? "ASC" : "DESC" });
+
+  return builder
+    .take(pageSize)
+    .skip((page - 1) * pageSize)
+    .getMany();
 };
 
 export default listProducts;

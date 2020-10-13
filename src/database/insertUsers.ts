@@ -12,7 +12,16 @@ interface User {
 }
 
 const insertUsers = async (users: Array<User>): Promise<Array<UserEntity>> => {
-  return [];
+  const userEntities = users.map((user) => {
+    const userEntity = new UserEntity();
+    userEntity.username = user.username;
+    userEntity.emailVerified = user.emailVerified;
+    if (user.emailVerifiedAt) userEntity.emailVerifiedAt = user.emailVerifiedAt;
+
+    return userEntity;
+  });
+
+  return UserEntity.save(userEntities);
 };
 
 export default insertUsers;
